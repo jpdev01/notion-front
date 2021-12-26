@@ -7,7 +7,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 export class PortalUtil {
 
   static baseUrl: string;
-  private static apiUrl: string = "http://localhost:8080/neusamoda";
+  private static apiUrl: string = "http://localhost:8080/notion/api";
   private static httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ export class PortalUtil {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ` + newToken
       }),
-      params: new HttpParams().append("category", "1")
+      params: new HttpParams()
     };
   }
 

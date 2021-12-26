@@ -30,13 +30,14 @@ export class LoginComponent implements OnInit {
       this.redirectToHome();
     }
     this.formLogin = this.fb.group({
-      login: [''],
+      username: [''],
       password: ['']
     });
     this.invalidLogin = false;
   }
 
   validateLogin(): void {
+    debugger;
     this.authService.validateLogin(this.formLogin.value).subscribe(
       (resultSuccess: any) => {
         localStorage.setItem('access_token', resultSuccess.token);
