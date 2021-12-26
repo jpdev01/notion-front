@@ -1,11 +1,8 @@
-
-import { UserService } from '../../shared/service/user.service';
-import { AuthService } from '../../shared/service/auth.service';
 import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Utils } from '../../shared/utils/Utils.model';
-import { PortalUtil } from '../../shared/service/PortalUtil.service';
+import { AuthService } from 'src/app/shared/service/Auth.service';
+import { PortalUtil } from 'src/app/shared/service/PortalUtil.service';
 
 @Component({
   selector: 'app-login',
@@ -14,21 +11,18 @@ import { PortalUtil } from '../../shared/service/PortalUtil.service';
 })
 export class LoginComponent implements OnInit {
 
-  formLogin;
+  formLogin: any;
   userIsLogged = false;
   public invalidLogin = false;
-  public utils: Utils
 
   // eventEmitter = new EventEmitter();
 
   constructor(
     private fb: FormBuilder,
-    private rest: UserService,
     private router: Router,
-    private service: UserService,
     private authService : AuthService
     ) {
-      //    this.validateIsLogged();
+
     }
 
   ngOnInit(): void {
@@ -40,7 +34,6 @@ export class LoginComponent implements OnInit {
       password: ['']
     });
     this.invalidLogin = false;
-    this.utils = new Utils();
   }
 
   validateLogin(): void {
@@ -52,8 +45,7 @@ export class LoginComponent implements OnInit {
         this.userIsLogged = true;
         window.setTimeout(()=>{this.redirectToHome()}, 1000)
     },
-    (resultError) => {
-
+    (resultError: any) => {
         this.formLogin.reset();
         this.invalidLogin = true;
 
@@ -62,12 +54,6 @@ export class LoginComponent implements OnInit {
 
   redirectToHome(){
     this.router.navigate(['/home']);
-  }
-
-  private validateIsLogged(): void{
-    if (this.authService.tokenAvailable()) {
-      this.redirectToHome();
-    }
   }
 
 }
