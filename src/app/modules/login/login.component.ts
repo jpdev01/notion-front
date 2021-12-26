@@ -20,10 +20,10 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService : AuthService
-    ) {
+    private authService: AuthService
+  ) {
 
-    }
+  }
 
   ngOnInit(): void {
     if (this.authService.tokenAvailable()) {
@@ -44,16 +44,16 @@ export class LoginComponent implements OnInit {
         PortalUtil.setToken(resultSuccess.token);
         this.authService.login();
         this.userIsLogged = true;
-        window.setTimeout(()=>{this.redirectToHome()}, 1000)
-    },
-    (resultError: any) => {
+        window.setTimeout(() => { this.redirectToHome() }, 1000)
+      },
+      (resultError: any) => {
         this.formLogin.reset();
         this.invalidLogin = true;
 
-    });
+      });
   }
 
-  redirectToHome(){
+  redirectToHome() {
     this.router.navigate(['/home']);
   }
 
