@@ -7,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
+  title = "Olá!"
+  navItems = [{
+    title: "Calendário",
+    route: "calendar"
+  }];
+
   constructor() { }
 
   ngOnInit(): void {
 
   }
+
 
 }
