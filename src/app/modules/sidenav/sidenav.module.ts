@@ -10,6 +10,7 @@ import { SidenavComponent } from './sidenav.component';
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [SidenavComponent]
 })
 export class SidenavModule { }
