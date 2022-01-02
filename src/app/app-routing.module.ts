@@ -7,7 +7,8 @@ const routes: Routes = [
     redirectTo: '/login',
     pathMatch: 'full'
   },
-  { path: 'login', loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule) }
+  { path: 'login', loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule) },
+  { path: 'calendar', loadChildren: () => import('./modules/calendar/calendar.module').then(m => m.CalendarModule) }
 ];
 
 @NgModule({

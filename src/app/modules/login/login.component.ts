@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authService.tokenAvailable()) {
-      this.redirectToHome();
+      this.router.navigate(['/calendar']);
+      return;
     }
     this.formLogin = this.fb.group({
       username: [''],
@@ -37,14 +38,13 @@ export class LoginComponent implements OnInit {
   }
 
   validateLogin(): void {
-    debugger;
     this.authService.validateLogin(this.formLogin.value).subscribe(
       (resultSuccess: any) => {
         localStorage.setItem('access_token', resultSuccess.token);
         PortalUtil.setToken(resultSuccess.token);
         this.authService.login();
         this.userIsLogged = true;
-        window.setTimeout(() => { this.redirectToHome() }, 1000)
+        window.setTimeout(() => { this.router.navigate(['/calendar']); }, 1000)
       },
       (resultError: any) => {
         this.formLogin.reset();
@@ -53,8 +53,5 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  redirectToHome() {
-    this.router.navigate(['/home']);
-  }
 
 }
