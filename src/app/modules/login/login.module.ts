@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { LoginRoutingModule } from './login-routing.module';
+// import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../shared/service/Auth.service';
@@ -12,9 +12,9 @@ import { AuthService } from '../../shared/service/Auth.service';
   declarations: [LoginComponent],
   imports: [
     CommonModule,
-    LoginRoutingModule,
+    //LoginRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ]
 })
 export class LoginModule { }

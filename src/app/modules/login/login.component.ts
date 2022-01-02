@@ -26,10 +26,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.authService.tokenAvailable()) {
-      this.router.navigate(['/calendar']);
-      return;
-    }
+    // if (this.authService.tokenAvailable()) {
+    //   this.router.navigate(['/calendar']);
+    //   return;
+    // }
     this.formLogin = this.fb.group({
       username: [''],
       password: ['']
