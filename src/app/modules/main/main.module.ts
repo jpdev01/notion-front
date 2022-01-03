@@ -5,6 +5,7 @@ import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
 import { CalendarModule } from '../calendar/calendar.module';
 import { SidenavModule } from '../sidenav/sidenav.module';
+import { TreeModule } from '../tree/tree.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { SidenavModule } from '../sidenav/sidenav.module';
   imports: [
     CommonModule,
     MainRoutingModule,
-    SidenavModule
+    SidenavModule,
+    TreeModule
   ]
 })
 export class MainModule { }

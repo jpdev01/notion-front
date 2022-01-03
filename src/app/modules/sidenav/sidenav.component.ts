@@ -11,7 +11,11 @@ export class SidenavComponent implements OnInit {
   navItems = [{
     title: "Calendário",
     route: "calendar"
-  }];
+  }, {
+    title: "Notas",
+    route: "notes"
+  }
+  ];
 
   constructor() { }
 
