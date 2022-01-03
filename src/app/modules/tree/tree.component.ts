@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TreeField } from 'src/app/shared/model/tree-field.model';
 
 @Component({
   selector: 'app-tree',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TreeComponent implements OnInit {
 
+  items: TreeField[] = [];
   constructor() { }
 
   ngOnInit(): void {
